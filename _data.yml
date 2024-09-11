@@ -1,0 +1,14 @@
+lang: en
+home:
+  welcome: >-
+    Hello there, lazy dev with SwiftUI skills, don't mind me if something
+    doesn't work.
+menu_links: []
+metas:
+  site: MisakiDEV
+  description: General description of the blog
+  title: =title
+  image: =image
+  twitter: '@username'
+  lang: en
+  generator: false
