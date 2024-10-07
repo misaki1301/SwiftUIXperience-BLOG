@@ -25,4 +25,4 @@ jobs:
         with:
           build_dir: _site
         env:
-          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN_PAGE }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
