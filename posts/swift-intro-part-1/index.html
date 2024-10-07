@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>An story of how Apple change the way we code for iOS - MisakiDEV</title>
+
+    <meta name="supported-color-schemes" content="light dark">
+    <meta name="theme-color" content="hsl(220, 20%, 100%)" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="hsl(220, 20%, 10%)" media="(prefers-color-scheme: dark)">
+    
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="MisakiDEV">
+    <link rel="alternate" href="/feed.json" type="application/json" title="MisakiDEV">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="canonical" href="http://localhost/posts/swift-intro-part-1/">
+    <script src="/js/main.js" type="module"></script>
+    
+  <meta property="og:type" content="website">
+<meta property="og:site_name" content="MisakiDEV">
+<meta property="og:locale" content="en">
+<meta property="og:title" content="An story of how Apple change the way we code for iOS">
+<meta property="og:description" content="General description of the blog">
+<meta property="og:url" content="http://localhost/posts/swift-intro-part-1/">
+<meta property="og:image" content="http://localhost/uploads/pexels-nickoloui-2473183(1).jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@username">
+<meta name="description" content="General description of the blog">
+</head>
+  <body>
+    <nav class="navbar">
+      <a href="/" class="navbar-home">
+        
+          <strong>MisakiDEV</strong>
+        
+      </a>
+
+      <ul class="navbar-links">
+        <li>
+          <a href="/archive/">
+            Archive
+          </a>
+        </li>
+      
+      <li>
+        <script>
+          let theme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+          document.documentElement.dataset.theme = theme;
+          function changeTheme() {
+            theme = theme === "dark" ? "light" : "dark";
+            localStorage.setItem("theme", theme);
+            document.documentElement.dataset.theme = theme;
+          }
+        </script>
+        <button class="button" onclick="changeTheme()">
+          <span class="icon">◐</span>
+        </button>
+      </li>
+      </ul>
+    </nav>
+
+    <main class="body-post">
+      <article class="post" data-pagefind-body="" data-title="An story of how Apple change the way we code for iOS" data-pagefind-index-attrs="data-title">
+  <header class="post-header">
+    <h1 class="post-title">An story of how Apple change the way we code for iOS</h1>
+
+    <div class="post-details">
+  
+
+  <p>
+    <time datetime="2024-09-04 00:00:00">
+      September 4th, 2024
+    </time>
+  </p>
+
+  <p>1 min read</p>
+
+  <div class="post-tags">
+    
+      
+
+      
+        <a data-pagefind-filter="filter" class="badge" href="/archive/swiftui/">SwiftUI</a>
+      
+    
+      
+
+      
+        <a data-pagefind-filter="filter" class="badge" href="/archive/ios/">iOS</a>
+      
+    
+  </div>
+</div>
+
+  </header>
+
+  
+
+  <div class="post-body body">
+    <p><img src="/uploads/pexels-nickoloui-2473183(1).jpg" alt="Image"><br>
+<em>Photo by Nikolaos Dimou: <a href="https://www.pexels.com/photo/black-macbook-pro-2473183/">source</a></em></p>
+<p>Around 2019, Apple introduces SwiftUI, a new way to code for Apple devices, making it so easy and fast to build interfaces without compromising the effort learning about constraints and the interface builder used for UIKit.</p>
+<!--more-->
+<p>What kind of changes, you tell?</p>
+<p>Well, in SwiftUI taking example of the button, now you can code it and see a preview of it in mere seconds</p>
+<p>Example:</p>
+<pre class="language-swift" tabindex="0"><code class="language-swift hljs"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ExampleView</span>: <span class="hljs-title class_ inherited__">View</span> {
+    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {
+        <span class="hljs-type">VStack</span> {
+            <span class="hljs-type">Button</span>(<span class="hljs-string">"Submit SwiftUI"</span>, action: {}})
+        }
+        .padding()
+    }
+}
+</code></pre>
+<p>and the preview looks like this:
+<img src="/uploads/screenshot-2024-09-12-at-6.40.26-pm.png" alt="Image"></p>
+<p>in the UIKit side:
+<img src="/uploads/screenshot-2024-09-12-at-6.57.23-pm.png" alt="Image"></p>
+<p>The ViewController will look like this:</p>
+<div class="markdown-alert markdown-alert-tip">
+<p class="markdown-alert-title">Tip</p>
+<p>Don't forget to add the reference of the button of the storyboard
+It won't work without it</p>
+</div>
+<pre class="language-swift" tabindex="0"><code class="language-swift hljs"><span class="hljs-keyword">import</span> UIKit
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">HelloViewController</span>: <span class="hljs-title class_ inherited__">UIViewController</span> {
+
+    <span class="hljs-keyword">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> submitButton: <span class="hljs-type">UIButton</span>!
+    
+    <span class="hljs-keyword">override</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLoad</span>() {
+        <span class="hljs-keyword">super</span>.viewDidLoad()
+
+        <span class="hljs-comment">// Do any additional setup after loading the view.</span>
+        submitButton.addTarget(
+        <span class="hljs-keyword">self</span>, 
+        action: <span class="hljs-keyword">#selector</span>(submitHelloWorld), 
+        for: .touchUpInside
+        )
+    }
+    
+    <span class="hljs-keyword">@objc</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">submitHelloWorld</span>() {
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">"Hello World!"</span>)
+    }
+    
+}
+</code></pre>
+<p>Classic implementation and kinda messy if we make some updates to the reference...</p>
+<p>what about the SwiftUI one?</p>
+<p>Well, if you looked carefully at the code with SwiftUI, the component Button has a parameter called action, so we can pass a function there :)</p>
+<pre class="language-swift" tabindex="0"><code class="language-swift hljs"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ExampleView</span>: <span class="hljs-title class_ inherited__">View</span> {
+    <span class="hljs-keyword">var</span> body: <span class="hljs-keyword">some</span> <span class="hljs-type">View</span> {
+        <span class="hljs-type">VStack</span> {
+            <span class="hljs-type">Button</span>(<span class="hljs-string">"Submit SwiftUI"</span>, action: submit)
+        }
+        .padding()
+    }
+    
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">submit</span>() {
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">"Hello World!"</span>)
+    }
+}
+</code></pre>
+<p>OK</p>
+
+  </div>
+
+  
+
+  
+  
+</article>
+
+<nav class="page-pagination pagination">
+  <ul>
+  </ul>
+</nav>
+
+    </main>
+
+    <!-- Current page: /posts/swift-intro-part-1/ -->
+  
+
+</body></html>

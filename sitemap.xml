@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://localhost/</loc>
+    <lastmod>2024-10-07T03:49:29.763Z</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost/archive/</loc>
+    <lastmod>2024-10-07T03:49:29.733Z</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost/archive/ios/</loc>
+    <lastmod>2024-10-07T03:49:29.657Z</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost/archive/swiftui/</loc>
+    <lastmod>2024-10-07T03:49:29.657Z</lastmod>
+  </url>
+  <url>
+    <loc>http://localhost/posts/swift-intro-part-1/</loc>
+    <lastmod>2024-09-04T00:00:00.000Z</lastmod>
+  </url>
+</urlset>

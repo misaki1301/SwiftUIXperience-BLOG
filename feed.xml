@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" version="2.0">
+  <channel>
+    <title>MisakiDEV</title>
+    <link>http://localhost/</link>
+    <atom:link href="http://localhost/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>General description of the blog</description>
+    <lastBuildDate>Mon, 07 Oct 2024 03:49:29 GMT</lastBuildDate>
+    <language>en</language>
+    <generator>Lume v2.3.0</generator>
+    <item>
+      <title>An story of how Apple change the way we code for iOS</title>
+      <link>http://localhost/posts/swift-intro-part-1/</link>
+      <guid isPermaLink="false">http://localhost/posts/swift-intro-part-1/</guid>
+      <content:encoded>
+        <![CDATA[<p><img src="http://localhost/uploads/pexels-nickoloui-2473183(1).jpg" alt="Image"><br>
+<em>Photo by Nikolaos Dimou: <a href="https://www.pexels.com/photo/black-macbook-pro-2473183/">source</a></em></p>
+<p>Around 2019, Apple introduces SwiftUI, a new way to code for Apple devices, making it so easy and fast to build interfaces without compromising the effort learning about constraints and the interface builder used for UIKit.</p>
+<!--more-->
+<p>What kind of changes, you tell?</p>
+<p>Well, in SwiftUI taking example of the button, now you can code it and see a preview of it in mere seconds</p>
+<p>Example:</p>
+<pre><code class="language-swift">struct ExampleView: View {
+    var body: some View {
+        VStack {
+            Button(&quot;Submit SwiftUI&quot;, action: {}})
+        }
+        .padding()
+    }
+}
+</code></pre>
+<p>and the preview looks like this:
+<img src="http://localhost/uploads/screenshot-2024-09-12-at-6.40.26-pm.png" alt="Image"></p>
+<p>in the UIKit side:
+<img src="http://localhost/uploads/screenshot-2024-09-12-at-6.57.23-pm.png" alt="Image"></p>
+<p>The ViewController will look like this:</p>
+<div class="markdown-alert markdown-alert-tip">
+<p class="markdown-alert-title">Tip</p>
+<p>Don't forget to add the reference of the button of the storyboard
+It won't work without it</p>
+</div>
+<pre><code class="language-swift">import UIKit
+
+class HelloViewController: UIViewController {
+
+    @IBOutlet weak var submitButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        submitButton.addTarget(
+        self, 
+        action: #selector(submitHelloWorld), 
+        for: .touchUpInside
+        )
+    }
+    
+    @objc func submitHelloWorld() {
+        print(&quot;Hello World!&quot;)
+    }
+    
+}
+</code></pre>
+<p>Classic implementation and kinda messy if we make some updates to the reference...</p>
+<p>what about the SwiftUI one?</p>
+<p>Well, if you looked carefully at the code with SwiftUI, the component Button has a parameter called action, so we can pass a function there :)</p>
+<pre><code class="language-swift">struct ExampleView: View {
+    var body: some View {
+        VStack {
+            Button(&quot;Submit SwiftUI&quot;, action: submit)
+        }
+        .padding()
+    }
+    
+    private func submit() {
+        print(&quot;Hello World!&quot;)
+    }
+}
+</code></pre>
+<p>OK</p>
+]]>
+      </content:encoded>
+      <pubDate>Wed, 04 Sep 2024 00:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
